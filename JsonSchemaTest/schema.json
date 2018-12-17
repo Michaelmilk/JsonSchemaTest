@@ -1,0 +1,288 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "JSON Schema for BTW payload format",
+
+  "type": "object",
+  "properties": {
+    "CreatedDateTime": {
+      "$ref": "#/definitions/tzDateTimeString"
+    },
+    "id": {
+      "$ref": "#/definitions/numString"
+    },
+    "ID": {
+      "$ref": "#/definitions/numString"
+    },
+    "LastModifiedDateTime": {
+      "$ref": "#/definitions/tzDateTimeString"
+    },
+    "fields": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/numString"
+        },
+        "Title": {
+          "$ref": "#/definitions/nonEmptyString"
+        },
+        "Modified": {
+          "$ref": "#/definitions/dateTimeString"
+        },
+        "Created": {
+          "$ref": "#/definitions/dateTimeString"
+        },
+        "ContentType": {
+          "type": "string"
+        },
+        "project_brand": {
+          "$ref": "#/definitions/notEmptyStringArray"
+        },
+        "project_parentbrand": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "properties": {
+              "brand": {
+                "$ref": "#/definitions/nonEmptyString"
+              },
+              "brand_desc": {
+                "type": "string"
+              },
+              "brand_logo_thumbnail": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "solution_hub": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "properties": {
+              "brand": {
+                "type": "string",
+                "pattern": "^Publicis.*$"
+              }
+            }
+          }
+        },
+        "project_topic": {
+          "$ref": "#/definitions/notEmptyStringArray"
+        },
+        "project_capability": {
+          "$ref": "#/definitions/notEmptyStringArray"
+        },
+        "project_name": {
+          "$ref": "#/definitions/nonEmptyString"
+        },
+        "project_homeoffice": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/nonEmptyString"
+          }
+        },
+        "project_industry": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/nonEmptyString"
+          }
+        },
+        "project_accounts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/nonEmptyString"
+          }
+        },
+        "project_contactname": {
+          "$ref": "#/definitions/nonEmptyString"
+        },
+        "project_contactemail": {
+          "type": "string",
+          "format": "email"
+        },
+        "project_descriptionshort": {
+          "$ref": "#/definitions/nonEmptyString"
+        },
+        "project_launchdate": {
+          "$ref": "#/definitions/nonEmptyString"
+        },
+        "project_descriptionlong": {
+          "$ref": "#/definitions/nonEmptyString"
+        },
+        "project_contributorslist": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "properties": {
+              "contributorID": {
+                "$ref": "#/definitions/numString"
+              },
+              "name": {
+                "$ref": "#/definitions/nonEmptyString"
+              },
+              "title": {
+                "$ref": "#/definitions/nonEmptyString"
+              }
+            }
+          }
+        },
+        "project_link": {
+          "$ref": "#/definitions/urlString"
+        },
+        "project_assets": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "properties": {
+              "LookupId": {
+                "type": "number"
+              },
+              "LookupValue": {
+                "$ref": "#/definitions/nonEmptyString"
+              },
+              "asset_url": {
+                "type": "string"
+              },
+              "asset_thumbnailurl": {
+                "type": "string"
+              },
+              "extension": {
+                "$ref": "#/definitions/nonEmptyString"
+              },
+              "primary_asset": {
+                "$ref": "#/definitions/booleanString"
+              }
+            }
+          }
+        },
+        "project_awards": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "AuthorLookupId": {
+          "$ref": "#/definitions/numString"
+        },
+        "EditorLookupId": {
+          "$ref": "#/definitions/numString"
+        },
+        "_CheckinComment": {
+          "type": "string"
+        },
+        "LinkFilenameNoMenu": {
+          "$ref": "#/definitions/nonEmptyString"
+        },
+        "LinkFilename": {
+          "$ref": "#/definitions/nonEmptyString"
+        },
+        "ItemChildCount": {
+          "$ref": "#/definitions/numString"
+        },
+        "FolderChildCount": {
+          "$ref": "#/definitions/numString"
+        },
+        "_ComplianceFlags": {
+          "type": "string"
+        },
+        "_ComplianceTag": {
+          "type": "string"
+        },
+        "_ComplianceTagWrittenTime": {
+          "type": "string"
+        },
+        "_ComplianceTagUserId": {
+          "type": "string"
+        },
+        "_CommentCount": {
+          "type": "string"
+        },
+        "_LikeCount": {
+          "type": "string"
+        },
+        "Edit": {
+          "$ref": "#/definitions/numString"
+        },
+        "_UIVersionString": {
+          "type": "string",
+          "pattern": "^[0-9.]+$"
+        },
+        "ParentVersionStringLookupId": {
+          "$ref": "#/definitions/numString"
+        },
+        "ParentLeafNameLookupId": {
+          "$ref": "#/definitions/numString"
+        },
+        "project_city": {
+          "$ref": "#/definitions/notEmptyStringArray"
+        },
+        "project_state": {
+          "$ref": "#/definitions/notEmptyStringArray"
+        },
+        "project_country": {
+          "$ref": "#/definitions/notEmptyStringArray"
+        },
+        "project_continent": {
+          "$ref": "#/definitions/notEmptyStringArray"
+        },
+        "project_region": {
+          "$ref": "#/definitions/notEmptyStringArray"
+        },
+        "project_subregion": {
+          "$ref": "#/definitions/notEmptyStringArray"
+        }
+      },
+      "required": [ "id" ]
+    }
+  },
+  "anyOf": [
+    { "required": [ "ID" ] },
+    { "required": [ "id" ] }
+  ],
+  "definitions": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "numString": {
+      "type": "string",
+      "pattern": "^[0-9]+$"
+    },
+    "tzDateTimeString": {
+      "type": "string",
+      "pattern": "^(19|20)\\d\\d-(0[1-9]|1[012])-([012]\\d|3[01])T([01]\\d|2[0-3]):([0-5]\\d):([0-5]\\d)Z$"
+    },
+    "dateTimeString": {
+      "type": "string",
+      "pattern": "^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4} (2[0-3]|[01]?[0-9]):([0-5]?[0-9]):([0-5]?[0-9])$"
+    },
+    "booleanString": {
+      "type": "string",
+      "enum": [
+        "True",
+        "False"
+      ]
+    },
+    "urlString": {
+      "type": "string",
+      "pattern": "^http(s)?://"
+    },
+    "notEmptyStringArray": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "stringArray": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
